@@ -17,8 +17,10 @@ if ! git remote | grep -q "origin"; then
     git remote add origin "$REMOTE_REPO"
 fi
 
+# Pull latest changes from remote before pushing
+git pull origin main --rebase
+
 # Add all files, commit, and push to GitHub
 git add .
-git commit -m "Initial commit"
-git branch -M main
-git push -u origin main
+git commit -m "Updated changes"
+git push origin main
